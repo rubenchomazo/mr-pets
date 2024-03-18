@@ -1,24 +1,69 @@
-<section class="bg-white dark:bg-gray-900">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-        <img class="w-full dark:hidden"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
-            alt="dashboard image">
-        <img class="w-full hidden dark:block" src="../../assets/img/mr-pets3.png" alt="dashboard image">
-        <div class="mt-4 md:mt-0">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Descubre todo lo que
-                necesitan tus mascotas.</h2>
-            <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">En mr-pets encontraras gran variedad
-                de articulos, juguetes y comida que necesitan tus mascotas.</p>
-            <a href="#"
-                class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-                Get started
-                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
-        </div>
+<section>
+    <div class="card flex justify-content-center">
+        <p-carousel [value]="products" [numVisible]="3" [numScroll]="3" [circular]="true"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-product pTemplate="item">
+                <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+                    <div class="mb-3">
+                        <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}"
+                            [alt]="product.name" class="w-6 shadow-2" />
+                    </div>
+
+                    <div>
+                        <h4 class="mb-1">{{ product.name }}</h4>
+                        <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6>
+                        <p-tag [value]="product.inventoryStatus"
+                            [severity]="getSeverity(product.inventoryStatus)"></p-tag>
+                        <div class="mt-5 flex align-items-center justify-content-center gap-2">
+                            <p-button icon="pi pi-search" [rounded]="true" />
+                            <p-button icon="pi pi-star-fill" [rounded]="true" severity="secondary" />
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+    <div class="cards">
+        <p-card header="Concentrados" subheader="Concentrado" [style]="{ width: '100%',heigth: '350px' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="./../../assets/img/agility-2.png" class="img-size" />
+            </ng-template>
+            <p>
+                Conozca nuestros mejores concentrados para su mascota
+            </p>
+            <ng-template pTemplate="footer">
+                <p-button [style]="{ 'margin-left': '100px' }" label="Vamos" icon="pi pi-check"></p-button>
+            </ng-template>
+        </p-card>
+        <p-card header="SPA" subheader="SPA y Peluqueria" [style]="{ width: '100%', heigth: '100%' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="./../../assets/img/bano.png" class="img-size" />
+            </ng-template>
+            <p>
+                Disfrute de nuestros servicios de spa y peluqueria para tu mascota
+            </p>
+            <ng-template pTemplate="footer">
+                <p-button [style]="{ 'margin-left': '100px' }" label="Vamos" icon="pi pi-check"></p-button>
+            </ng-template>
+        </p-card>
+        <p-card header="Juguetes" subheader="SPA y Peluqueria" [style]="{ width: '100%', heigth: '350px' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="./../../assets/img/lazos-1.png" class="img-size" />
+            </ng-template>
+            <p>
+                Disfrute de nuestros servicios de spa y peluqueria para tu mascota
+            </p>
+            <ng-template pTemplate="footer">
+                <p-button [style]="{ 'margin-left': '100px' }" label="Vamos" icon="pi pi-check"></p-button>
+            </ng-template>
+        </p-card>
+    </div>
+    <div class="card">
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" styleClass="mr-10"
+            size="xlarge" shape="circle"></p-avatar>
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" styleClass="mr-2"
+            size="large" shape="circle"></p-avatar>
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" styleClass="mr-2"
+            shape="circle"></p-avatar>
     </div>
 </section>

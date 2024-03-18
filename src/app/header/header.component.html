@@ -1,13 +1,11 @@
-<div class="menu-container">
-    <button mat-button [matMenuTriggerFor]="menu">Productos</button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>Concentrados</button>
-        <button mat-menu-item>Juguetes Medicinas</button>
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="service">Servicios</button>
-    <mat-menu #service="matMenu">
-        <button mat-menu-item>Baña a tu mascota</button>
-        <button mat-menu-item>Peluqueria</button>
-        <button mat-menu-item>Veterinaria</button>
-    </mat-menu>
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40" class="mr-2" />
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Buscar" class="w-full" />
+        </ng-template>
+    </p-menubar>
+
 </div>

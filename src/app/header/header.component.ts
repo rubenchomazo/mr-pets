@@ -1,36 +1,65 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
-  showMenu: boolean = false;
-  showMoonFill: boolean = false;
-
-  menuShow() {
-    this.showMenu = true;
-  }
-
-  menuHidden() {
-    const menuItems = document.querySelector('#menu');
-    const menuButtonSpans = document.querySelectorAll('#menu-button span');
-    //Open Menu
-    menuItems?.classList.toggle('hidden');
-    menuButtonSpans.forEach((span) => {
-      span.classList.toggle('animado');
-    });
-    this.showMenu = true;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: { target: { innerWidth: any } }) {
-    let w = event.target.innerWidth;
-    if (w > 1024) {
-      this.showMenu = true;
-    } else {
-      this.showMenu = false;
-    }
+export class HeaderComponent implements OnInit {
+  items: MenuItem[] | undefined;
+  ngOnInit(): void {
+    this.items = [
+      {
+        label: 'Productos',
+        icon: 'pi pi-fw pi-file',
+        items: [
+          {
+            label: 'Concentrados',
+            icon: 'pi pi-fw pi-plus',
+          },
+          {
+            label: 'Juguetes',
+            icon: 'pi pi-fw pi-plus',
+          },
+        ],
+      },
+      {
+        label: 'Servicios',
+        icon: 'pi pi-fw pi-pencil',
+        items: [
+          {
+            label: 'Baña a tu mascota',
+            icon: 'pi pi-fw pi-align-left',
+          },
+          {
+            label: 'Peluqueria',
+            icon: 'pi pi-fw pi-align-right',
+          },
+          {
+            label: 'Veterinaria',
+            icon: 'pi pi-fw pi-align-center',
+          },
+          {
+            label: 'Vacunación',
+            icon: 'pi pi-fw pi-align-justify',
+          },
+        ],
+      },
+      {
+        label: 'Quienes somos',
+        icon: 'pi pi-fw pi-user',
+        items: [
+          {
+            label: 'Acerca de mr-pets',
+            icon: 'pi pi-fw pi-user-plus',
+          },
+        ],
+      },
+      {
+        label: 'Carrito',
+        icon: 'pi pi-fw pi-power-off',
+      },
+    ];
   }
 }
