@@ -5,9 +5,9 @@ export class ProductService {
   getProductsData() {
     return [
       {
-        id: '1000',
+        id: '1',
         code: 'f230fh0g3',
-        name: 'Bamboo Watch',
+        name: 'Agi',
         description: 'Product Description',
         image: 'bamboo-watch.jpg',
         price: 65,

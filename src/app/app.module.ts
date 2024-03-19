@@ -17,9 +17,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { ImageModule } from 'primeng/image';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 // Services
 import { ProductService } from 'src/service/productservice';
+import { DashboardService } from 'src/service/dashboardservice';
 
 @NgModule({
   declarations: [
@@ -40,8 +44,11 @@ import { ProductService } from 'src/service/productservice';
     CardModule,
     AvatarModule,
     AvatarGroupModule,
+    ImageModule,
+    ScrollTopModule,
+    ScrollPanelModule,
   ],
-  providers: [provideAnimationsAsync(), ProductService],
+  providers: [provideAnimationsAsync(), ProductService, DashboardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,30 +1,27 @@
 <section>
-    <div class="card flex justify-content-center">
-        <p-carousel [value]="products" [numVisible]="3" [numScroll]="3" [circular]="true"
+    <div class="items-center">
+        <img class="w-full hidden dark:block" src="../../assets/img/mr-pets1.png" alt="dashboard image">
+        <div class="mt-4 md:mt-0">
+            <h2 class="font-extrabold">Descubre todo lo que
+                necesitan tus mascotas.</h2>
+            <p class="font-light">En mr-pets encontraras gran variedad
+                de articulos, juguetes y comida que necesitan tus mascotas.</p>
+        </div>
+    </div>
+    <div class="container">
+        <p-carousel [value]="galleryList" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
             [responsiveOptions]="responsiveOptions">
-            <ng-template let-product pTemplate="item">
-                <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
-                    <div class="mb-3">
-                        <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}"
-                            [alt]="product.name" class="w-6 shadow-2" />
-                    </div>
 
-                    <div>
-                        <h4 class="mb-1">{{ product.name }}</h4>
-                        <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6>
-                        <p-tag [value]="product.inventoryStatus"
-                            [severity]="getSeverity(product.inventoryStatus)"></p-tag>
-                        <div class="mt-5 flex align-items-center justify-content-center gap-2">
-                            <p-button icon="pi pi-search" [rounded]="true" />
-                            <p-button icon="pi pi-star-fill" [rounded]="true" severity="secondary" />
-                        </div>
-                    </div>
+            <ng-template let-gallery pTemplate="item">
+                <div class="gallery-item">
+                    <img src="./../../assets/img/{{ gallery.image }}" [alt]="gallery.name" class="img-size" />
                 </div>
             </ng-template>
+
         </p-carousel>
     </div>
     <div class="cards">
-        <p-card header="Concentrados" subheader="Concentrado" [style]="{ width: '100%',heigth: '350px' }">
+        <p-card header="Concentrados" subheader="Concentrado" class="card-container">
             <ng-template pTemplate="header">
                 <img alt="Card" src="./../../assets/img/agility-2.png" class="img-size" />
             </ng-template>
@@ -32,10 +29,10 @@
                 Conozca nuestros mejores concentrados para su mascota
             </p>
             <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '100px' }" label="Vamos" icon="pi pi-check"></p-button>
+                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
             </ng-template>
         </p-card>
-        <p-card header="SPA" subheader="SPA y Peluqueria" [style]="{ width: '100%', heigth: '100%' }">
+        <p-card header="SPA" subheader="SPA y Peluqueria" class="card-container">
             <ng-template pTemplate="header">
                 <img alt="Card" src="./../../assets/img/bano.png" class="img-size" />
             </ng-template>
@@ -43,27 +40,42 @@
                 Disfrute de nuestros servicios de spa y peluqueria para tu mascota
             </p>
             <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '100px' }" label="Vamos" icon="pi pi-check"></p-button>
+                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
             </ng-template>
         </p-card>
-        <p-card header="Juguetes" subheader="SPA y Peluqueria" [style]="{ width: '100%', heigth: '350px' }">
+        <p-card header="Juguetes" subheader="Recreo" class="card-container">
             <ng-template pTemplate="header">
                 <img alt="Card" src="./../../assets/img/lazos-1.png" class="img-size" />
             </ng-template>
             <p>
-                Disfrute de nuestros servicios de spa y peluqueria para tu mascota
+                Disfrute de nuestros productos para el entrenemiento de tus mascotas
             </p>
             <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '100px' }" label="Vamos" icon="pi pi-check"></p-button>
+                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
+            </ng-template>
+        </p-card>
+        <p-card header="Veterinaria" subheader="Salud y Bienestar" class="card-container">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="./../../assets/img/lazos-1.png" class="img-size" />
+            </ng-template>
+            <p>
+                Disfrute de nuestros servicios de vacunación y medicamentos
+            </p>
+            <ng-template pTemplate="footer">
+                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
             </ng-template>
         </p-card>
     </div>
-    <div class="card">
-        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" styleClass="mr-10"
-            size="xlarge" shape="circle"></p-avatar>
-        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" styleClass="mr-2"
-            size="large" shape="circle"></p-avatar>
-        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" styleClass="mr-2"
-            shape="circle"></p-avatar>
+    <div class="container">
+        <p-carousel [value]="brandList" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000"
+            [responsiveOptions]="responsiveOptions">
+
+            <ng-template let-brand pTemplate="item">
+                <div class="gallery-item">
+                    <img src="./../../assets/img/{{ brand.image }}" [alt]="brand.name" class="img-size" />
+                </div>
+            </ng-template>
+
+        </p-carousel>
     </div>
 </section>

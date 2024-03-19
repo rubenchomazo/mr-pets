@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Brand } from 'src/domain/brand';
+import { Gallery } from 'src/domain/gallery';
 import { Product } from 'src/domain/product';
+import { DashboardService } from 'src/service/dashboardservice';
 import { ProductService } from 'src/service/productservice';
 
 @Component({
@@ -9,16 +12,27 @@ import { ProductService } from 'src/service/productservice';
 })
 export class DashboardComponent implements OnInit {
   products: Product[] | any;
+  galleryList: Gallery[] | any;
+  brandList: Brand[] | any;
 
   responsiveOptions: any[] | undefined;
+  text: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private dashboardService: DashboardService
+  ) {}
 
   ngOnInit() {
     this.productService.getProductsSmall().then((products) => {
       this.products = products;
     });
-
+    this.dashboardService.getGallerySmall().then((gallery) => {
+      this.galleryList = gallery;
+    });
+    this.dashboardService.getBrand().then((brandList) => {
+      this.brandList = brandList;
+    });
     this.responsiveOptions = [
       {
         breakpoint: '1199px',
@@ -36,17 +50,5 @@ export class DashboardComponent implements OnInit {
         numScroll: 1,
       },
     ];
-  }
-
-  getSeverity(status: string) {
-    switch (status) {
-      case 'INSTOCK':
-        return 'success';
-      case 'LOWSTOCK':
-        return 'warning';
-      case 'OUTOFSTOCK':
-        return 'danger';
-    }
-    
   }
 }
