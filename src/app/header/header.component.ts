@@ -56,10 +56,6 @@ export class HeaderComponent implements OnInit {
           },
         ],
       },
-      {
-        label: 'Carrito',
-        icon: 'pi pi-fw pi-power-off',
-      },
     ];
   }
 }

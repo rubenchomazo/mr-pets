@@ -20,7 +20,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ImageModule } from 'primeng/image';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
-
+import { SplitterModule } from 'primeng/splitter';
 // Services
 import { ProductService } from 'src/service/productservice';
 import { DashboardService } from 'src/service/dashboardservice';
@@ -47,6 +47,7 @@ import { DashboardService } from 'src/service/dashboardservice';
     ImageModule,
     ScrollTopModule,
     ScrollPanelModule,
+    SplitterModule
   ],
   providers: [provideAnimationsAsync(), ProductService, DashboardService],
   bootstrap: [AppComponent],

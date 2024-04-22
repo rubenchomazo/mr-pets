@@ -1,6 +1,6 @@
 <section>
     <div class="items-center">
-        <img class="w-full hidden dark:block" src="../../assets/img/mr-pets1.png" alt="dashboard image">
+        <img class="w-full hidden dark:block" src="../../assets/img/mr-pets1.png" alt="dashboard">
         <div class="mt-4 md:mt-0">
             <h2 class="font-extrabold">Descubre todo lo que
                 necesitan tus mascotas.</h2>
@@ -20,62 +20,39 @@
 
         </p-carousel>
     </div>
-    <div class="cards">
-        <p-card header="Concentrados" subheader="Concentrado" class="card-container">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="./../../assets/img/agility-2.png" class="img-size" />
-            </ng-template>
-            <p>
-                Conozca nuestros mejores concentrados para su mascota
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
-            </ng-template>
-        </p-card>
-        <p-card header="SPA" subheader="SPA y Peluqueria" class="card-container">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="./../../assets/img/bano.png" class="img-size" />
-            </ng-template>
-            <p>
-                Disfrute de nuestros servicios de spa y peluqueria para tu mascota
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
-            </ng-template>
-        </p-card>
-        <p-card header="Juguetes" subheader="Recreo" class="card-container">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="./../../assets/img/lazos-1.png" class="img-size" />
-            </ng-template>
-            <p>
-                Disfrute de nuestros productos para el entrenemiento de tus mascotas
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
-            </ng-template>
-        </p-card>
-        <p-card header="Veterinaria" subheader="Salud y Bienestar" class="card-container">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="./../../assets/img/lazos-1.png" class="img-size" />
-            </ng-template>
-            <p>
-                Disfrute de nuestros servicios de vacunación y medicamentos
-            </p>
-            <ng-template pTemplate="footer">
-                <p-button [style]="{ 'margin-left': '20px' }" label="Vamos" icon="pi pi-check"></p-button>
-            </ng-template>
-        </p-card>
-    </div>
-    <div class="container">
-        <p-carousel [value]="brandList" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000"
-            [responsiveOptions]="responsiveOptions">
 
-            <ng-template let-brand pTemplate="item">
-                <div class="gallery-item">
-                    <img src="./../../assets/img/{{ brand.image }}" [alt]="brand.name" class="img-size" />
-                </div>
-            </ng-template>
 
-        </p-carousel>
-    </div>
+    <p-splitter [style]="{ height: '350px' }" [panelSizes]="[50, 50]">
+        <ng-template pTemplate>
+            <div class=" align-items-center justify-content-center">
+                <p>
+                    Conozca nuestros mejores concentrados para su mascota
+                </p>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <div class=" align-items-center justify-content-center"> <img alt="Card"
+                    src="./../../assets/img/agility-2.png" width="300px" height="300px" /></div>
+        </ng-template>
+    </p-splitter>
+    <p-splitter [style]="{ height: '350px' }" [panelSizes]="[50, 50]">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="./../../assets/img/bano.png" class="img-size" />
+        </ng-template>
+        <ng-template pTemplate>
+            <div class=" align-items-center justify-content-center">
+                <p>
+                    Disfrute de nuestros servicios de spa y peluqueria para tu mascota
+                </p>
+            </div>
+        </ng-template>
+    </p-splitter>
+    <p-carousel [value]="brandList" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-brand pTemplate="item">
+            <div class="gallery-item">
+                <img src="./../../assets/img/{{ brand.image }}" [alt]="brand.name" class="img-size" />
+            </div>
+        </ng-template>
+    </p-carousel>
 </section>
